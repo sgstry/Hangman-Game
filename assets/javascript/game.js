@@ -1,5 +1,8 @@
 
-var words = ["ferrari", "lamborghini", "bugatti", "kia", "mazda", "porsche", "mercedez", "volkswagen", "bmw", "toyota", "ford", "maserati"];
+var words = ["ferrari", "lamborghini", "bugatti", "kia", "mazda", "porsche",
+ "mercedes", "volkswagen", "bmw", "toyota", "ford", "maserati", "audi", "opel", "fiat",
+  "acura", "honda", "infiniti", "lexus", "mitsubishi", "nissan", "suzuki", "subaru", "hyundai",
+  "volvo", "bentley", "jaguar", "lotus", "mclaren", "buick", "chrysler", "chevrolet", "cadillac","dodge", "jeep", "lincoln", "tesla"];
 var wordToGuess = words[Math.floor(Math.random() * words.length)];
 var wordLength = wordToGuess.length;
 var numGuesses = 6;
@@ -19,6 +22,7 @@ for(var i = 0;i < wordLength;i++)
    spaces += "_ ";
 }
 document.getElementById("word").textContent = spaces.trim();
+document.getElementById("hangman").src = "assets/images/Hangman-6.png";
 
 
 document.onkeyup = function(event) {
@@ -50,6 +54,7 @@ document.onkeyup = function(event) {
       	       //Updated a visual of hangman with a new body part added
       	       guessesRemaining--;
       	       document.getElementById("numberOfGuesses").textContent = "" + guessesRemaining;
+               document.getElementById("hangman").src = "assets/images/Hangman-"+guessesRemaining+".png";
             }
 
             updateLettersGuessed(userGuess);
@@ -158,6 +163,7 @@ function newRound() {
    document.getElementById("numberOfGuesses").textContent = ""+numGuesses;
    document.getElementById("guess").value = "";
    document.getElementById("submitGuess").disabled = false;
+   document.getElementById("hangman").src = "assets/images/Hangman-6.png";
 
    newRoundMode = false;
 }
@@ -177,6 +183,7 @@ function generateSpacedWord() {
 
 function makeGuess() {
 	var guess = document.getElementById("guess").value;
+  guess = guess.toLowerCase();
 	if(guess === wordToGuess) {
 		guessedWordSoFar = guess;
 		roundFinished();
@@ -185,6 +192,7 @@ function makeGuess() {
 	} else {
       	guessesRemaining--;
       	document.getElementById("numberOfGuesses").textContent = "" + guessesRemaining;
+        document.getElementById("hangman").src = "assets/images/Hangman-"+guessesRemaining+".png";
       	if(roundOver()) {
            roundFinished();
         }
