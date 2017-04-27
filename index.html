@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hangman</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body>
+
+    <div id="game" class="container">
+    	<div class="row">
+    		<div class="col-md-6">
+	        	<span id="message">Hello! Please guess a letter!</span>
+	      		<br>
+		        <br>
+		        <span>WINS: </span>
+			    <span id="wins">0</span>
+			    <br>
+			    <br>
+			    <span>LOSSES: </span>
+			    <span id="losses">0</span>
+			    <br>
+			    <br>
+		        <span>CURRENT WORD: </span>
+		        <span id="word">_ _ _</span>
+		        <br>
+		        <br>
+		        <span>NUMBER OF GUESSES REMAINING: </span>
+		        <span id="numberOfGuesses">10</span>
+		        <br>
+		        <br>
+		        <span>LETTERS YOU'VE ALREADY GUESSED:</span>
+		        <span id="lettersGuessed">[ ]</span>
+		        <br>
+		        <br>
+		        <span>MAKE A GUESS: </span>
+		        <input type="text" id="guess">
+		        <button id="submitGuess" onclick="makeGuess()">Submit</button>
+		        <br>
+		        <br>
+		    </div>
+		    <div class="col-md-6">
+				<img src="" alt="empty hangman image">
+		    </div>
+	    </div>
+    </div>
+
+    <script src="assets/javascript/game.js"></script>
+
+  </body>
+</html>
