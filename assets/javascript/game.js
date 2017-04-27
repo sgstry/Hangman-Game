@@ -131,6 +131,7 @@ function roundFinished() {
 	   losses++;
 	   document.getElementById("losses").textContent = "" + losses;
 	   document.getElementById("message").textContent = "Better luck next time! Press any key to play another round!";
+     document.getElementById("word").textContent = generateSpacedWord();
 	   document.getElementById("submitGuess").disabled = true;
 	}
 	newRoundMode = true;
